@@ -61,4 +61,23 @@ def Lectura_de_recursos(filename: str) -> List[Recursos]:
     return recursos 
 #Leen los archivos de tareas y recursos y las pasamos a listas
 #------------------------------------------------------------------------
-print ("mundo")
+tareas.categoria in recursos.categorias
+
+
+def compatible_resources_for_task(task: tarea, resources: List[recursos]) -> List[recursos]:
+    return [resource for resource in resources if task.category in resource.categories]
+
+def compatibility_map(tasks: List[tarea], resources: List[recursos]) -> Dict[str, List[recursos]]:
+    result: Dict[str, List[recursos]] = {}
+    for task in tasks:
+        result[task.tarea_id] = compatible_resources_for_task(task, resources)
+    return result
+
+def compatibility_map(tasks: List[tarea], resources: List[Recursos]) -> Dict[str, List[Recursos]]:
+    result: Dict[str, List[Recursos]] = {}
+    for task in tasks:
+        result[task.tarea_id] = compatible_resources_for_task(task, resources)
+    return result
+
+
+
